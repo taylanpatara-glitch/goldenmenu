@@ -1003,7 +1003,13 @@ function applyLang(){
 // VERİ & DEFAULTS
 // ════════════════════════════════════════════════════════════
 const ld=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}};
-const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+const sv=(k,v)=>{
+  try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}
+  try{
+    const key=k.replace('gp_','');
+    if(window._fbDb) window._fbDb.collection('goldenmenu').doc(key).set({value:v});
+  }catch(e){}
+};
 
 const MAX_MASA=11, MASA_KAPASITE=4; // 4 kişilik masalar, 5. kişi ek sandalye ile aynı masaya
 // 1-5 kişi = 1 masa, 6-10 = 2 masa, 11-15 = 3 masa ...
@@ -1521,6 +1527,7 @@ const hg=document.getElementById('hp-giris');if(hg){hg.min=hgDate;}
 const hc=document.getElementById('hp-cikis');if(hc){hc.min=hgDate;}
 
 window.addEventListener('hashchange',checkHash);checkHash();
+loadFirebase();
 
 // ════════════════════════════════════════════════════════════
 // ODA VERİLERİ
@@ -2004,7 +2011,9 @@ function syncExtraFromFirebase(k,v){
 }
 
 
-// ═══ CLOUDİNARY ════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════
+// CLOUDİNARY
+// ════════════════════════════════════════════════════════════
 const CL_CLOUD='domibnq7s';
 const CL_PRESET='goldenpansiyon';
 async function clUpload(file,folder){
@@ -2030,6 +2039,72 @@ function showToast(msg,ok){
   t.textContent=msg;t.style.opacity='1';
   t.style.background=ok===1?'rgba(39,80,10,.9)':ok===0?'rgba(169,45,45,.9)':'rgba(0,0,0,.8)';
   if(ok!==undefined)setTimeout(()=>t.style.opacity='0',2500);
+}
+
+// ════════════════════════════════════════════════════════════
+// FİREBASE — gerçek zamanlı senkronizasyon
+// ════════════════════════════════════════════════════════════
+const FB_KEYS=['fiyat','meze','ic','week','masalar','yorum','rez','odafiyat','bloklar','odafoto','occ'];
+
+function loadFirebase(){
+  const s1=document.createElement('script');
+  s1.src='https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js';
+  s1.onload=function(){
+    const s2=document.createElement('script');
+    s2.src='https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js';
+    s2.onload=function(){
+      firebase.initializeApp({
+        apiKey:"AIzaSyC0bvVVa-AMOlTs5taEKHuBTGsDOREZAHM",
+        authDomain:"goldenmenu-b9249.firebaseapp.com",
+        projectId:"goldenmenu-b9249",
+        storageBucket:"goldenmenu-b9249.firebasestorage.app",
+        messagingSenderId:"448533336699",
+        appId:"1:448533336699:web:ef4a482d409a3f27fe08de"
+      });
+      window._fbDb=firebase.firestore();
+      syncFromFirebase();
+    };
+    document.head.appendChild(s2);
+  };
+  document.head.appendChild(s1);
+}
+
+async function syncFromFirebase(){
+  try{
+    const db=window._fbDb;if(!db)return;
+    const snaps=await Promise.all(FB_KEYS.map(k=>db.collection('goldenmenu').doc(k).get()));
+    let changed=false;
+    snaps.forEach(function(snap,i){
+      if(snap.exists&&snap.data().value!==undefined){
+        const k=FB_KEYS[i];const v=snap.data().value;
+        localStorage.setItem('gp_'+k,JSON.stringify(v));
+        if(k==='fiyat')fiyat=v;
+        else if(k==='meze')mezeler=v;
+        else if(k==='ic')icecek=v;
+        else if(k==='week')weekMenu=v;
+        else if(k==='masalar')masalar=v;
+        else if(k==='yorum')yorumlar=v;
+        else if(k==='rez')rezervasyonlar=v;
+        else if(k==='odafiyat')odaFiyatlari=v;
+        else if(k==='bloklar')bloklar=v;
+        else if(k==='odafoto'){
+          odaFotolar=v;
+          // Resimleri hemen ekrana yansıt
+          renderRoomsGallery();
+          const gallEl=document.getElementById('oda-gallery');
+          if(gallEl&&gallEl.children.length>0)renderOdaGallery&&renderOdaGallery();
+        }
+        else if(k==='occ')occData=v;
+        changed=true;
+      }
+    });
+    if(changed){
+      buildDaySwitcher&&buildDaySwitcher();
+      renderMenuForDay&&renderMenuForDay(selDayOffset||0);
+      renderRoomsGallery&&renderRoomsGallery();
+      document.getElementById('m-fiyat')&&(document.getElementById('m-fiyat').textContent=Number(fiyat).toLocaleString('tr-TR')+' ₺');
+    }
+  }catch(e){console.warn('Firebase sync hatası:',e);}
 }
 </script>
 </body>
