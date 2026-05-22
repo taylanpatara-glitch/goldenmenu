@@ -1,17 +1,4 @@
-async function addFotos(key,inp){
-  if(!inp.files||!inp.files.length)return;
-  const fotos=odaFotolar[key]||[];
-  const rem=5-fotos.length;
-  const files=Array.from(inp.files).slice(0,rem);
-  for(const file of files){
-    const url=await clUpload(file,'rooms');
-    if(url) fotos.push(url);
-  }
-  odaFotolar[key]=fotos;
-  sv('gp_odafoto',odaFotolar);
-  renderAdminOdaFoto();
-  renderRoomsGallery();
-}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -2025,32 +2012,29 @@ function syncExtraFromFirebase(k,v){
 }
 
 
-// ═══ CLOUDİNARY ══════════════════════════════════════════
-const CL_CLOUD = 'domibnq7s';
-const CL_PRESET = 'goldenpansiyon';
-
-async function clUpload(file, folder){
-  const fd = new FormData();
-  fd.append('file', file);
-  fd.append('upload_preset', CL_PRESET);
-  if(folder) fd.append('folder', 'gp/' + folder);
-  const t = showToast('Resim yükleniyor...');
-  try {
-    const res = await fetch('https://api.cloudinary.com/v1_1/'+CL_CLOUD+'/image/upload',{method:'POST',body:fd});
-    const d = await res.json();
-    if(d.secure_url){ showToast('✓ Yüklendi!',1); return d.secure_url; }
-    showToast('❌ Hata: '+(d.error?.message||'?'),0); return null;
-  } catch(e){ showToast('❌ Bağlantı hatası',0); return null; }
+// ═══ CLOUDİNARY ════════════════════════════════════════════
+const CL_CLOUD='domibnq7s';
+const CL_PRESET='goldenpansiyon';
+async function clUpload(file,folder){
+  const fd=new FormData();
+  fd.append('file',file);fd.append('upload_preset',CL_PRESET);
+  if(folder)fd.append('folder','gp/'+folder);
+  showToast('⏳ Resim yükleniyor...');
+  try{
+    const res=await fetch('https://api.cloudinary.com/v1_1/'+CL_CLOUD+'/image/upload',{method:'POST',body:fd});
+    const d=await res.json();
+    if(d.secure_url){showToast('✓ Yüklendi!',1);return d.secure_url;}
+    showToast('❌ '+(d.error?.message||'Hata'),0);return null;
+  }catch(e){showToast('❌ Bağlantı hatası',0);return null;}
 }
-function showToast(msg, ok){
+function showToast(msg,ok){
   let t=document.getElementById('cl-toast');
   if(!t){t=document.createElement('div');t.id='cl-toast';
-    t.style='position:fixed;bottom:70px;left:50%;transform:translateX(-50%);padding:9px 18px;border-radius:20px;font-size:13px;z-index:9999;color:#fff;font-family:Lora,serif;transition:opacity .4s;';
+    t.style='position:fixed;bottom:70px;left:50%;transform:translateX(-50%);padding:9px 18px;border-radius:20px;font-size:13px;z-index:9999;color:#fff;font-family:Lora,serif;';
     document.body.appendChild(t);}
-  t.textContent=msg;
-  t.style.opacity='1';
-  t.style.background=ok===1?'rgba(39,80,10,.9)':ok===0?'rgba(169,45,45,.9)':'rgba(0,0,0,.75)';
-  if(ok!==undefined) setTimeout(()=>t.style.opacity='0',2500);
+  t.textContent=msg;t.style.opacity='1';
+  t.style.background=ok===1?'rgba(39,80,10,.9)':ok===0?'rgba(169,45,45,.9)':'rgba(0,0,0,.8)';
+  if(ok!==undefined)setTimeout(()=>t.style.opacity='0',2500);
 }
 
 </script>
