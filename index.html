@@ -1363,11 +1363,7 @@ function renderDayItemList(elId,type,items){
 function getDayList(type){if(!weekMenu[adminSelDay])weekMenu[adminSelDay]={ana:[],tatli:[]};return type==='ana'?weekMenu[adminSelDay].ana:weekMenu[adminSelDay].tatli;}
 function removeDayItem(type,i){getDayList(type).splice(i,1);renderDayItemList(type==='ana'?'adm-ana-list':'adm-tatli-list',type,getDayList(type));}
 function addDayItem(type){getDayList(type).push({id:'n'+Date.now(),emoji:type==='tatli'?'🍮':'🍽️',ad:'',aciklama_tr:'',aciklama_en:'',aciklama_ru:'',img:''});renderDayItemList(type==='ana'?'adm-ana-list':'adm-tatli-list',type,getDayList(type));}
-async function uploadDayImg(type,i,elId,inp){
-  if(!inp.files[0])return;
-  const url=await clUpload(inp.files[0],'menu');
-  if(url){getDayList(type)[i].img=url;sv('gp_week',weekMenu);renderDayItemList(elId,type,getDayList(type));}
-}
+async function uploadDayImg(type,i,elId,inp){if(!inp.files[0])return;const url=await clUpload(inp.files[0],"menu");if(url){getDayList(type)[i].img=url;sv("gp_week",weekMenu);renderDayItemList(elId,type,getDayList(type));}}
 function dayKaydet(){sv('gp_week',weekMenu);renderWeekPreview();const ok=document.getElementById('day-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
 
 // ════════════════════════════════════════════════════════════
@@ -1405,11 +1401,7 @@ function renderAdminMeze(){
   });
 }
 function toggleAlerjen(i,a,checked){if(!mezeler[i].alerjenler)mezeler[i].alerjenler=[];if(checked){if(!mezeler[i].alerjenler.includes(a))mezeler[i].alerjenler.push(a);}else mezeler[i].alerjenler=mezeler[i].alerjenler.filter(x=>x!==a);}
-async function uploadMezeImg(i,inp){
-  if(!inp.files[0])return;
-  const url=await clUpload(inp.files[0],'mezes');
-  if(url){mezeler[i].img=url;sv('gp_meze',mezeler);renderAdminMeze();}
-}
+async function uploadMezeImg(i,inp){if(!inp.files[0])return;const url=await clUpload(inp.files[0],"mezes");if(url){mezeler[i].img=url;sv("gp_meze",mezeler);renderAdminMeze();}}
 function addMeze(){mezeler.push({id:'n'+Date.now(),emoji:'🥗',ad:'',aciklama_tr:'',aciklama_en:'',aciklama_ru:'',alerjenler:[],img:''});renderAdminMeze();}
 function mezeKaydet(){sv('gp_meze',mezeler);const ok=document.getElementById('meze-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
 function fiyatKaydet(){fiyat=parseInt(document.getElementById('a-fiyat').value)||1000;sv('gp_fiyat',fiyat);const ok=document.getElementById('fiyat-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
@@ -2017,7 +2009,8 @@ const CL_CLOUD='domibnq7s';
 const CL_PRESET='goldenpansiyon';
 async function clUpload(file,folder){
   const fd=new FormData();
-  fd.append('file',file);fd.append('upload_preset',CL_PRESET);
+  fd.append('file',file);
+  fd.append('upload_preset',CL_PRESET);
   if(folder)fd.append('folder','gp/'+folder);
   showToast('⏳ Resim yükleniyor...');
   try{
@@ -2029,14 +2022,15 @@ async function clUpload(file,folder){
 }
 function showToast(msg,ok){
   let t=document.getElementById('cl-toast');
-  if(!t){t=document.createElement('div');t.id='cl-toast';
+  if(!t){
+    t=document.createElement('div');t.id='cl-toast';
     t.style='position:fixed;bottom:70px;left:50%;transform:translateX(-50%);padding:9px 18px;border-radius:20px;font-size:13px;z-index:9999;color:#fff;font-family:Lora,serif;';
-    document.body.appendChild(t);}
+    document.body.appendChild(t);
+  }
   t.textContent=msg;t.style.opacity='1';
   t.style.background=ok===1?'rgba(39,80,10,.9)':ok===0?'rgba(169,45,45,.9)':'rgba(0,0,0,.8)';
   if(ok!==undefined)setTimeout(()=>t.style.opacity='0',2500);
 }
-
 </script>
 </body>
 </html>
