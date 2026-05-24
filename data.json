@@ -1,0 +1,727 @@
+{
+  "site": {
+    "name": "Golden Pansiyon & Restaurant",
+    "subtitle": "Gelemiş · Patara · Kaş · Antalya",
+    "phone": "0242 843 51 62",
+    "whatsapp": "905325089033",
+    "address": "Gelemiş (Patara) Mah. Demokrasi Cad. No:1 Kaş / Antalya",
+    "fixMenuPrice": 1000
+  },
+  "rooms": [
+    {
+      "id": "double",
+      "emoji": "🛏️",
+      "name": {
+        "tr": "Double Oda",
+        "en": "Double Room",
+        "ru": "Двухместный"
+      },
+      "desc": {
+        "tr": "Çift kişilik yatak. 0-3 yaş bebek için park yatak ücretsiz.",
+        "en": "Double bed. Free baby cot for 0-3 age.",
+        "ru": "Двуспальная кровать. Бесплатная кроватка для детей 0-3 лет."
+      },
+      "features": [
+        "Çift Kişilik Yatak",
+        "Klima",
+        "Wi-Fi",
+        "Balkon"
+      ],
+      "priceBB": 2500,
+      "priceHB": 4300,
+      "maxGuests": 2,
+      "allowsBaby": true,
+      "allowsChild": false,
+      "photos": []
+    },
+    {
+      "id": "twin",
+      "emoji": "🛏️🛏️",
+      "name": {
+        "tr": "Twin Oda",
+        "en": "Twin Room",
+        "ru": "Твин"
+      },
+      "desc": {
+        "tr": "2 ayrı tek kişilik yatak.",
+        "en": "2 separate single beds.",
+        "ru": "Два раздельных кровати."
+      },
+      "features": [
+        "2 Ayrı Yatak",
+        "Klima",
+        "Wi-Fi"
+      ],
+      "priceBB": 2500,
+      "priceHB": 4300,
+      "maxGuests": 2,
+      "allowsBaby": false,
+      "allowsChild": false,
+      "photos": []
+    },
+    {
+      "id": "triple3",
+      "emoji": "🛏️🛏️🛏️",
+      "name": {
+        "tr": "Triple (3 Tek Yatak)",
+        "en": "Triple (3 Singles)",
+        "ru": "Тройной (3 кровати)"
+      },
+      "desc": {
+        "tr": "3 ayrı tek kişilik yatak.",
+        "en": "3 separate single beds.",
+        "ru": "3 односпальных кровати."
+      },
+      "features": [
+        "3 Tek Yatak",
+        "Klima",
+        "Wi-Fi"
+      ],
+      "priceBB": 3000,
+      "priceHB": 5000,
+      "maxGuests": 3,
+      "allowsBaby": false,
+      "allowsChild": true,
+      "photos": []
+    },
+    {
+      "id": "tripleF",
+      "emoji": "👨‍👩‍👦",
+      "name": {
+        "tr": "Triple (Double+Tek)",
+        "en": "Triple (Double+Single)",
+        "ru": "Тройной (2+1)"
+      },
+      "desc": {
+        "tr": "Bir çift ve bir tek yatak. Aileler için ideal.",
+        "en": "One double and one single bed. Ideal for families.",
+        "ru": "Двуспальная и односпальная кровать. Для семей."
+      },
+      "features": [
+        "1 Çift + 1 Tek Yatak",
+        "Klima",
+        "Wi-Fi"
+      ],
+      "priceBB": 3000,
+      "priceHB": 5000,
+      "maxGuests": 3,
+      "allowsBaby": true,
+      "allowsChild": true,
+      "photos": []
+    }
+  ],
+  "menu": {
+    "fixPrice": 1000,
+    "mezes": [
+      {
+        "id": "m1",
+        "emoji": "🥗",
+        "name": {
+          "tr": "Mevsim Salatası",
+          "en": "Season Salad",
+          "ru": "Сезонный салат"
+        },
+        "desc": {
+          "tr": "Domates, salatalık, zeytinyağı ile",
+          "en": "Tomatoes, cucumber, olive oil",
+          "ru": "Помидоры, огурец, оливковое масло"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m2",
+        "emoji": "🍅",
+        "name": {
+          "tr": "Domates Salatası",
+          "en": "Tomato Salad",
+          "ru": "Салат из помидоров"
+        },
+        "desc": {
+          "tr": "Taze domates, soğan, maydanoz",
+          "en": "Fresh tomatoes, onion, parsley",
+          "ru": "Свежие помидоры, лук, петрушка"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m3",
+        "emoji": "🥒",
+        "name": {
+          "tr": "Cacık",
+          "en": "Tzatziki",
+          "ru": "Джаджик"
+        },
+        "desc": {
+          "tr": "Yoğurt, salatalık, sarımsak, nane",
+          "en": "Yoghurt, cucumber, garlic, mint",
+          "ru": "Йогурт, огурец, чеснок, мята"
+        },
+        "allergens": [
+          "dairy",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m4",
+        "emoji": "🫒",
+        "name": {
+          "tr": "Zeytinyağlı Fasulye",
+          "en": "Green Beans",
+          "ru": "Фасоль"
+        },
+        "desc": {
+          "tr": "Zeytinyağında pişirilmiş taze fasulye",
+          "en": "Green beans in olive oil",
+          "ru": "Фасоль на оливковом масле"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m5",
+        "emoji": "🍆",
+        "name": {
+          "tr": "Patlıcan Salatası",
+          "en": "Aubergine Salad",
+          "ru": "Баклажановый салат"
+        },
+        "desc": {
+          "tr": "Közlenmiş patlıcan, sarımsak, limon",
+          "en": "Roasted aubergine, garlic, lemon",
+          "ru": "Баклажаны, чеснок, лимон"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m6",
+        "emoji": "🧄",
+        "name": {
+          "tr": "Ezme",
+          "en": "Spicy Tomato Dip",
+          "ru": "Эзме"
+        },
+        "desc": {
+          "tr": "Domates, biber, soğan, maydanoz",
+          "en": "Tomatoes, peppers, onion, parsley",
+          "ru": "Помидоры, перец, лук"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m7",
+        "emoji": "🌿",
+        "name": {
+          "tr": "Tarator",
+          "en": "Walnut Sauce",
+          "ru": "Тараторный соус"
+        },
+        "desc": {
+          "tr": "Ceviz, sarımsak, ekmek, zeytinyağı",
+          "en": "Walnuts, garlic, bread, olive oil",
+          "ru": "Орехи, чеснок, хлеб"
+        },
+        "allergens": [
+          "nut",
+          "gluten",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m8",
+        "emoji": "🫑",
+        "name": {
+          "tr": "Közlenmiş Biber",
+          "en": "Roasted Peppers",
+          "ru": "Запечённый перец"
+        },
+        "desc": {
+          "tr": "Kırmızı ve yeşil biber, zeytinyağlı",
+          "en": "Red and green peppers, olive oil",
+          "ru": "Красный и зелёный перец"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m9",
+        "emoji": "🥬",
+        "name": {
+          "tr": "Yeşil Salata",
+          "en": "Green Salad",
+          "ru": "Зелёный салат"
+        },
+        "desc": {
+          "tr": "Marul, roka, semizotu karışımı",
+          "en": "Lettuce, rocket, purslane mix",
+          "ru": "Салат, руккола, портулак"
+        },
+        "allergens": [
+          "vegan",
+          "veggie"
+        ],
+        "img": ""
+      },
+      {
+        "id": "m10",
+        "emoji": "🧀",
+        "name": {
+          "tr": "Haydari",
+          "en": "Herb Yoghurt",
+          "ru": "Хайдари"
+        },
+        "desc": {
+          "tr": "Süzme yoğurt, sarımsak, dereotu",
+          "en": "Strained yoghurt, garlic, dill",
+          "ru": "Йогурт, чеснок, укроп"
+        },
+        "allergens": [
+          "dairy",
+          "veggie"
+        ],
+        "img": ""
+      }
+    ],
+    "week": {
+      "0": {
+        "ana": [
+          {
+            "emoji": "🥩",
+            "name": {
+              "tr": "Izgara Et",
+              "en": "Grilled Meat",
+              "ru": "Мясо на гриле"
+            },
+            "desc": {
+              "tr": "Mangalda pişirilmiş, pilav ile",
+              "en": "Grilled, served with rice",
+              "ru": "На гриле с рисом"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍮",
+            "name": {
+              "tr": "İrmik Tatlısı",
+              "en": "Semolina Dessert",
+              "ru": "Манный десерт"
+            },
+            "desc": {
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашнее · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "1": {
+        "ana": [
+          {
+            "emoji": "🐟",
+            "name": {
+              "tr": "Izgara Levrek",
+              "en": "Grilled Sea Bass",
+              "ru": "Окунь на гриле"
+            },
+            "desc": {
+              "tr": "Taze otlar ve limon ile",
+              "en": "With fresh herbs and lemon",
+              "ru": "Со свежими травами и лимоном"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍮",
+            "name": {
+              "tr": "İrmik Tatlısı",
+              "en": "Semolina Dessert",
+              "ru": "Манный десерт"
+            },
+            "desc": {
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашнее · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "2": {
+        "ana": [
+          {
+            "emoji": "🥩",
+            "name": {
+              "tr": "Mangalda Köfte",
+              "en": "Grilled Meatballs",
+              "ru": "Котлеты на гриле"
+            },
+            "desc": {
+              "tr": "Közlenmiş biber ile",
+              "en": "With roasted peppers",
+              "ru": "С запечённым перцем"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🥛",
+            "name": {
+              "tr": "Sütlaç",
+              "en": "Rice Pudding",
+              "ru": "Рисовый пудинг"
+            },
+            "desc": {
+              "tr": "Fırınlanmış · 🎁 İkram",
+              "en": "Baked · 🎁 Complimentary",
+              "ru": "Запечённый · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "3": {
+        "ana": [
+          {
+            "emoji": "🍗",
+            "name": {
+              "tr": "Fırın Tavuk",
+              "en": "Roasted Chicken",
+              "ru": "Запечённая курица"
+            },
+            "desc": {
+              "tr": "Baharatlı marine, bulgur ile",
+              "en": "Marinated, with bulgur",
+              "ru": "Маринованное, с булгуром"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍮",
+            "name": {
+              "tr": "İrmik Tatlısı",
+              "en": "Semolina Dessert",
+              "ru": "Манный десерт"
+            },
+            "desc": {
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашнее · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "4": {
+        "ana": [
+          {
+            "emoji": "🦐",
+            "name": {
+              "tr": "Karides Güveç",
+              "en": "Shrimp Casserole",
+              "ru": "Жаркое с креветками"
+            },
+            "desc": {
+              "tr": "Domates sosu ile fırında",
+              "en": "Baked in tomato sauce",
+              "ru": "В духовке с томатным соусом"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍮",
+            "name": {
+              "tr": "Kazandibi",
+              "en": "Caramel Pudding",
+              "ru": "Карамельный пудинг"
+            },
+            "desc": {
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашнее · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "5": {
+        "ana": [
+          {
+            "emoji": "🐟",
+            "name": {
+              "tr": "Balık Tava",
+              "en": "Fried Fish",
+              "ru": "Жареная рыба"
+            },
+            "desc": {
+              "tr": "Mevsim balığı, çıtır kızartma",
+              "en": "Seasonal fish, crispy fried",
+              "ru": "Рыба сезона, хрустящая"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍮",
+            "name": {
+              "tr": "İrmik Tatlısı",
+              "en": "Semolina Dessert",
+              "ru": "Манный десерт"
+            },
+            "desc": {
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашнее · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "6": {
+        "ana": [
+          {
+            "emoji": "🥦",
+            "name": {
+              "tr": "Sebze Güveç",
+              "en": "Vegetable Stew",
+              "ru": "Овощное рагу"
+            },
+            "desc": {
+              "tr": "Zeytinyağlı mevsim sebzeleri",
+              "en": "Olive oil seasonal vegetables",
+              "ru": "Овощи на оливковом масле"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍫",
+            "name": {
+              "tr": "Baklava",
+              "en": "Baklava",
+              "ru": "Пахлава"
+            },
+            "desc": {
+              "tr": "Fıstıklı · 🎁 İkram",
+              "en": "Pistachio · 🎁 Complimentary",
+              "ru": "Фисташковая · 🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      }
+    },
+    "drinks": [
+      {
+        "cat": "hot",
+        "name": {
+          "tr": "Çay",
+          "en": "Tea",
+          "ru": "Чай"
+        },
+        "price": ""
+      },
+      {
+        "cat": "hot",
+        "name": {
+          "tr": "Espresso",
+          "en": "Espresso",
+          "ru": "Эспрессо"
+        },
+        "price": ""
+      },
+      {
+        "cat": "hot",
+        "name": {
+          "tr": "Americano",
+          "en": "Americano",
+          "ru": "Американо"
+        },
+        "price": ""
+      },
+      {
+        "cat": "hot",
+        "name": {
+          "tr": "Latte",
+          "en": "Latte",
+          "ru": "Латте"
+        },
+        "price": ""
+      },
+      {
+        "cat": "hot",
+        "name": {
+          "tr": "Türk Kahvesi",
+          "en": "Turkish Coffee",
+          "ru": "Турецкий кофе"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Kola",
+          "en": "Cola",
+          "ru": "Кола"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Fanta",
+          "en": "Fanta",
+          "ru": "Фанта"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Sprite",
+          "en": "Sprite",
+          "ru": "Спрайт"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Ice Tea",
+          "en": "Ice Tea",
+          "ru": "Айс Ти"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Meyve Suyu",
+          "en": "Fruit Juice",
+          "ru": "Сок"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Soda",
+          "en": "Soda",
+          "ru": "Содовая"
+        },
+        "price": ""
+      },
+      {
+        "cat": "cold",
+        "name": {
+          "tr": "Su (0.5L)",
+          "en": "Water (0.5L)",
+          "ru": "Вода (0.5л)"
+        },
+        "price": ""
+      },
+      {
+        "cat": "beer",
+        "name": {
+          "tr": "Efes",
+          "en": "Efes",
+          "ru": "Эфес"
+        },
+        "price": ""
+      },
+      {
+        "cat": "beer",
+        "name": {
+          "tr": "Bomonti",
+          "en": "Bomonti",
+          "ru": "Бомонти"
+        },
+        "price": ""
+      },
+      {
+        "cat": "beer",
+        "name": {
+          "tr": "Carlsberg",
+          "en": "Carlsberg",
+          "ru": "Карлсберг"
+        },
+        "price": ""
+      },
+      {
+        "cat": "beer",
+        "name": {
+          "tr": "Tuborg",
+          "en": "Tuborg",
+          "ru": "Туборг"
+        },
+        "price": ""
+      },
+      {
+        "cat": "spirits",
+        "name": {
+          "tr": "Kadeh Şarap",
+          "en": "Glass of Wine",
+          "ru": "Бокал вина"
+        },
+        "price": ""
+      },
+      {
+        "cat": "spirits",
+        "name": {
+          "tr": "Rakı",
+          "en": "Raki",
+          "ru": "Ракы"
+        },
+        "price": "",
+        "variants": [
+          {
+            "label": "0.35L",
+            "price": ""
+          },
+          {
+            "label": "0.50L",
+            "price": ""
+          },
+          {
+            "label": "0.70L",
+            "price": ""
+          }
+        ]
+      }
+    ]
+  }
+}
