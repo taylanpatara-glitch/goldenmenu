@@ -464,6 +464,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(26,26,26,0.97);display:fle
   .adm-tab{font-size:11px;padding:7px 12px;}
 }
 
+
+.drag-handle{color:#bbb;cursor:grab;padding:0 8px;font-size:18px;user-select:none;flex-shrink:0;}
+.drag-handle:hover{color:var(--gm,#3B6D11);}
+.drag-over-top{border-top:2px solid var(--gold,#C9A84C)!important;}
+.dragging-item{opacity:.4;}
+
 </style>
 </head>
 <body>
@@ -620,7 +626,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(26,26,26,0.97);display:fle
     <div class="sep"><div class="ln"></div><div class="lb" id="lbl-mezesec">Açık Büfe · Mezeler & Salatalar</div><div class="ln"></div></div>
     <div class="meze-grid" id="m-meze-grid"></div>
     <p class="meze-note" id="lbl-mezenote">Tüm mezeler ve salatalar sınırsız servis edilmektedir</p>
-    <div class="sep"><div class="ln"></div><div class="lb" id="lbl-anasec">Ana Yemek</div><div class="ln"></div></div>
+    <div id="m-konsept" style="display:none;background:linear-gradient(135deg,var(--gm),var(--gd));color:#fff;border-radius:12px;padding:13px 16px;margin-bottom:14px;font-family:'Playfair Display',serif;font-size:14px;text-align:center;line-height:1.6;"></div>
+<div id="m-ara-sec" style="display:none;">
+  <div class="sep"><div class="ln"></div><div class="lb">🔥 Ara Sıcak</div><div class="ln"></div></div>
+  <div class="items-grid" id="m-ara-grid"></div>
+</div>
+<div class="sep"><div class="ln"></div><div class="lb" id="lbl-anasec">Ana Yemek</div><div class="ln"></div></div>
     <div class="items-grid" id="m-ana-grid"></div>
     <div class="sep"><div class="ln"></div><div class="lb" id="lbl-tatlisec">Tatlı</div><div class="ln"></div></div>
     <div class="items-grid" id="m-tatli-grid"></div>
@@ -1115,6 +1126,10 @@ function buildDaySwitcher(){
 // MÜŞTERİ MENÜ RENDER
 // ════════════════════════════════════════════════════════════
 function desc(it){
+  if(it.desc){
+    const v=it.desc[curLang]||it.desc.tr||'';
+    if(v)return v;
+  }
   if(curLang==='en'&&it.aciklama_en)return it.aciklama_en;
   if(curLang==='ru'&&it.aciklama_ru)return it.aciklama_ru;
   return it.aciklama_tr||it.aciklama||'';
@@ -1145,19 +1160,48 @@ function renderMenuForDay(offset){
       </div>
     </div>`).join('');
 
+  // Konsept banner (Cuma/Ctesi için)
+  const konseptEl=document.getElementById('m-konsept');
+  if(konseptEl){
+    if(dayData.konsept){
+      const kt=dayData.konsept[curLang]||dayData.konsept.tr||'';
+      konseptEl.style.display='block';
+      konseptEl.textContent=kt;
+    } else {
+      konseptEl.style.display='none';
+    }
+  }
+  // Ara sıcak
+  const araEl=document.getElementById('m-ara-grid');
+  if(araEl){
+    if(dayData.ara&&dayData.ara.length){
+      araEl.parentElement.style.display='block';
+      araEl.innerHTML=dayData.ara.map(it=>{
+        const nm=it.name?(it.name[curLang]||it.name.tr||it.ad||''):it.ad||'';
+        return `<div class="item-card">
+          <div class="item-img">${it.img?`<img src="${it.img}">`:`<div class="no-img">${it.emoji||'🍽️'}</div>`}</div>
+          <div class="item-body"><h4>${nm}</h4>${desc(it)?`<p>${desc(it)}</p>`:''}</div>
+        </div>`;
+      }).join('');
+    } else if(araEl.parentElement){
+      araEl.parentElement.style.display='none';
+    }
+  }
   // Ana
-  document.getElementById('m-ana-grid').innerHTML=dayData.ana.map(it=>`
-    <div class="item-card">
+  document.getElementById('m-ana-grid').innerHTML=dayData.ana.map(it=>{
+    const nm=it.name?(it.name[curLang]||it.name.tr||it.ad||''):it.ad||'';
+    return `<div class="item-card">
       <div class="item-img">${it.img?`<img src="${it.img}">`:`<div class="no-img">${it.emoji||'🍽️'}</div>`}</div>
-      <div class="item-body"><h4>${it.ad}</h4>${desc(it)?`<p>${desc(it)}</p>`:''}</div>
-    </div>`).join('')||'<p style="font-size:13px;color:var(--mut);padding:10px 0;">—</p>';
+      <div class="item-body"><h4>${nm}</h4>${desc(it)?`<p>${desc(it)}</p>`:''}</div>
+    </div>`;}).join('')||'<p style="font-size:13px;color:var(--mut);padding:10px 0;">—</p>';
 
   // Tatlı
-  document.getElementById('m-tatli-grid').innerHTML=dayData.tatli.map(it=>`
-    <div class="item-card">
+  document.getElementById('m-tatli-grid').innerHTML=dayData.tatli.map(it=>{
+    const nm=it.name?(it.name[curLang]||it.name.tr||it.ad||''):it.ad||'';
+    return `<div class="item-card">
       <div class="item-img">${it.img?`<img src="${it.img}">`:`<div class="no-img">${it.emoji||'🍮'}</div>`}</div>
-      <div class="item-body"><h4>${it.ad}</h4>${desc(it)?`<p>${desc(it)}</p>`:''}</div>
-    </div>`).join('')||'<p style="font-size:13px;color:var(--mut);padding:10px 0;">—</p>';
+      <div class="item-body"><h4>${nm}</h4>${desc(it)?`<p>${desc(it)}</p>`:''}</div>
+    </div>`;}).join('')||'<p style="font-size:13px;color:var(--mut);padding:10px 0;">—</p>';
 
   renderIcMenu();
   renderYorumlar();
@@ -1337,7 +1381,7 @@ function renderWeekPreview(){
 function renderDayItemList(elId,type,items){
   const el=document.getElementById(elId);el.innerHTML='';
   items.forEach((it,i)=>{
-    const d=document.createElement('div');d.className='item-edit-row';
+    const d=document.createElement('div');d.className='item-edit-row';d.setAttribute('draggable','true');
     d.innerHTML=`
       <button class="rm-btn" onclick="removeDayItem('${type}',${i})">✕ Sil</button>
       <div class="ar2">
@@ -1402,6 +1446,7 @@ function renderAdminMeze(){
 }
 function toggleAlerjen(i,a,checked){if(!mezeler[i].alerjenler)mezeler[i].alerjenler=[];if(checked){if(!mezeler[i].alerjenler.includes(a))mezeler[i].alerjenler.push(a);}else mezeler[i].alerjenler=mezeler[i].alerjenler.filter(x=>x!==a);}
 async function uploadMezeImg(i,inp){if(!inp.files[0])return;const url=await clUpload(inp.files[0],"mezes");if(url){mezeler[i].img=url;sv("gp_meze",mezeler);renderAdminMeze();}}
+  makeDraggable('a-meze-list',function(){return mezeler;},function(arr){mezeler=arr;sv('gp_meze',mezeler);},renderAdminMeze);
 function addMeze(){mezeler.push({id:'n'+Date.now(),emoji:'🥗',ad:'',aciklama_tr:'',aciklama_en:'',aciklama_ru:'',alerjenler:[],img:''});renderAdminMeze();}
 function mezeKaydet(){sv('gp_meze',mezeler);const ok=document.getElementById('meze-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
 function fiyatKaydet(){fiyat=parseInt(document.getElementById('a-fiyat').value)||1000;sv('gp_fiyat',fiyat);const ok=document.getElementById('fiyat-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
@@ -1412,9 +1457,10 @@ function fiyatKaydet(){fiyat=parseInt(document.getElementById('a-fiyat').value)|
 function renderAdminIc(){
   const l=L();const el=document.getElementById('a-ic-list');el.innerHTML='';
   icecek.forEach((ic,i)=>{
-    const d=document.createElement('div');d.className='ic-edit-row';
+    const d=document.createElement('div');d.className='ic-edit-row';d.setAttribute('draggable','true');
     const hasV=ic.variants&&ic.variants.length;
     d.innerHTML=`<div class="ic-edit-top">
+      <span class="drag-handle" title="Sürükle">⠿</span>
       <span class="ic-cat-badge">${l.cats[ic.cat]||ic.cat}</span>
       <input type="text" value="${ic.ad}" placeholder="İsim" style="flex:1;" oninput="icecek[${i}].ad=this.value">
       ${!hasV?`<input type="text" value="${ic.fiyat||''}" placeholder="₺" style="width:80px;" oninput="icecek[${i}].fiyat=this.value">`:''}
@@ -1424,6 +1470,7 @@ function renderAdminIc(){
     if(hasV){const vw=document.getElementById('icv-'+i);ic.variants.forEach((v,vi)=>{const vr=document.createElement('div');vr.className='var-row';vr.innerHTML=`<input type="text" value="${v.label}" placeholder="0.35L" oninput="icecek[${i}].variants[${vi}].label=this.value"><input type="text" value="${v.fiyat||''}" placeholder="₺" style="width:80px;" oninput="icecek[${i}].variants[${vi}].fiyat=this.value"><button class="ic-del" onclick="icecek[${i}].variants.splice(${vi},1);renderAdminIc()">✕</button>`;vw.appendChild(vr);});}
   });
 }
+  makeDraggable('a-ic-list',function(){return icecek;},function(arr){icecek=arr;sv('gp_ic',icecek);},renderAdminIc);
 function addIcecek(cat){const it={cat,ad:'',fiyat:''};if(cat==='alkol')it.variants=[{label:'',fiyat:''}];icecek.push(it);renderAdminIc();}
 function icecekKaydet(){sv('gp_ic',icecek);const ok=document.getElementById('ic-ok');ok.style.display='block';setTimeout(()=>ok.style.display='none',2000);}
 
@@ -2023,6 +2070,43 @@ function showToast(msg,ok){
   t.style.background=ok===1?'rgba(39,80,10,.9)':ok===0?'rgba(169,45,45,.9)':'rgba(0,0,0,.8)';
   if(ok!==undefined)setTimeout(()=>t.style.opacity='0',2500);
 }
+
+// ═══ DRAG & DROP ════════════════════════════════════════════
+function makeDraggable(containerId, getArr, saveArr, rerender){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  let dragged = null;
+  el.querySelectorAll('[draggable="true"]').forEach(function(row){
+    row.addEventListener('dragstart', function(e){
+      dragged = row;
+      setTimeout(()=>row.classList.add('dragging-item'), 0);
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    row.addEventListener('dragend', function(){
+      row.classList.remove('dragging-item');
+      el.querySelectorAll('[draggable]').forEach(r=>r.classList.remove('drag-over-top'));
+      dragged = null;
+    });
+    row.addEventListener('dragover', function(e){
+      e.preventDefault();
+      el.querySelectorAll('[draggable]').forEach(r=>r.classList.remove('drag-over-top'));
+      if(row !== dragged) row.classList.add('drag-over-top');
+    });
+    row.addEventListener('drop', function(e){
+      e.preventDefault();
+      if(!dragged || dragged === row) return;
+      const arr = getArr();
+      const rows = Array.from(el.querySelectorAll('[draggable="true"]'));
+      const from = rows.indexOf(dragged);
+      const to = rows.indexOf(row);
+      if(from < 0 || to < 0) return;
+      arr.splice(to, 0, arr.splice(from, 1)[0]);
+      saveArr(arr);
+      rerender();
+    });
+  });
+}
+
 </script>
 </body>
 </html>

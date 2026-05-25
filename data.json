@@ -306,69 +306,49 @@
       }
     ],
     "week": {
-      "0": {
-        "ana": [
-          {
-            "emoji": "🥩",
-            "name": {
-              "tr": "Izgara Et",
-              "en": "Grilled Meat",
-              "ru": "Мясо на гриле"
-            },
-            "desc": {
-              "tr": "Mangalda pişirilmiş, pilav ile",
-              "en": "Grilled, served with rice",
-              "ru": "На гриле с рисом"
-            },
-            "img": ""
-          }
-        ],
-        "tatli": [
-          {
-            "emoji": "🍮",
-            "name": {
-              "tr": "İrmik Tatlısı",
-              "en": "Semolina Dessert",
-              "ru": "Манный десерт"
-            },
-            "desc": {
-              "tr": "Ev yapımı · 🎁 İkram",
-              "en": "Homemade · 🎁 Complimentary",
-              "ru": "Домашнее · 🎁 В подарок"
-            },
-            "img": ""
-          }
-        ]
-      },
       "1": {
         "ana": [
           {
-            "emoji": "🐟",
+            "emoji": "🍅",
             "name": {
-              "tr": "Izgara Levrek",
-              "en": "Grilled Sea Bass",
-              "ru": "Окунь на гриле"
+              "tr": "Kremalı Domates Çorbası",
+              "en": "Creamy Tomato Soup",
+              "ru": "Крем-суп из томатов"
             },
             "desc": {
-              "tr": "Taze otlar ve limon ile",
-              "en": "With fresh herbs and lemon",
-              "ru": "Со свежими травами и лимоном"
+              "tr": "Krutonlu",
+              "en": "With croutons",
+              "ru": "С гренками"
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🍗",
+            "name": {
+              "tr": "Çıtır Tavuk Şinitzel",
+              "en": "Crispy Chicken Schnitzel",
+              "ru": "Хрустящий куриный шницель"
+            },
+            "desc": {
+              "tr": "Çıtır patates kızartması & Akdeniz yeşillikleri salatası ile",
+              "en": "With crispy fries & Mediterranean greens salad",
+              "ru": "С картофелем фри и зелёным салатом"
             },
             "img": ""
           }
         ],
         "tatli": [
           {
-            "emoji": "🍮",
+            "emoji": "🎂",
             "name": {
-              "tr": "İrmik Tatlısı",
-              "en": "Semolina Dessert",
-              "ru": "Манный десерт"
+              "tr": "Mozaik Pasta",
+              "en": "Mosaic Cake",
+              "ru": "Мозаичный торт"
             },
             "desc": {
               "tr": "Ev yapımı · 🎁 İkram",
               "en": "Homemade · 🎁 Complimentary",
-              "ru": "Домашнее · 🎁 В подарок"
+              "ru": "Домашний · 🎁 В подарок"
             },
             "img": ""
           }
@@ -377,32 +357,46 @@
       "2": {
         "ana": [
           {
-            "emoji": "🥩",
+            "emoji": "🍜",
             "name": {
-              "tr": "Mangalda Köfte",
-              "en": "Grilled Meatballs",
-              "ru": "Котлеты на гриле"
+              "tr": "Süzme Mercimek Çorbası",
+              "en": "Red Lentil Soup",
+              "ru": "Суп из красной чечевицы"
             },
             "desc": {
-              "tr": "Közlenmiş biber ile",
-              "en": "With roasted peppers",
-              "ru": "С запечённым перцем"
+              "tr": "",
+              "en": "",
+              "ru": ""
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🥩",
+            "name": {
+              "tr": "Izgara Kasap Köfte",
+              "en": "Grilled Butcher's Meatballs",
+              "ru": "Жареные фрикадельки мясника"
+            },
+            "desc": {
+              "tr": "Tereyağlı pirinç pilavı, közlenmiş biber-domates & yoğurtlu cacık ile",
+              "en": "With buttered rice, roasted peppers & tzatziki",
+              "ru": "С рисом, перцем и соусом"
             },
             "img": ""
           }
         ],
         "tatli": [
           {
-            "emoji": "🥛",
+            "emoji": "🍪",
             "name": {
-              "tr": "Sütlaç",
-              "en": "Rice Pudding",
-              "ru": "Рисовый пудинг"
+              "tr": "Şekerpare",
+              "en": "Şekerpare (Turkish Syrup Cookie)",
+              "ru": "Шекерпаре"
             },
             "desc": {
-              "tr": "Fırınlanmış · 🎁 İkram",
-              "en": "Baked · 🎁 Complimentary",
-              "ru": "Запечённый · 🎁 В подарок"
+              "tr": "Ev yapımı · 🎁 İkram",
+              "en": "Homemade · 🎁 Complimentary",
+              "ru": "Домашний · 🎁 В подарок"
             },
             "img": ""
           }
@@ -411,32 +405,46 @@
       "3": {
         "ana": [
           {
-            "emoji": "🍗",
+            "emoji": "🍄",
             "name": {
-              "tr": "Fırın Tavuk",
-              "en": "Roasted Chicken",
-              "ru": "Запечённая курица"
+              "tr": "Kremalı Mantar Çorbası",
+              "en": "Creamy Mushroom Soup",
+              "ru": "Крем-суп из грибов"
             },
             "desc": {
-              "tr": "Baharatlı marine, bulgur ile",
-              "en": "Marinated, with bulgur",
-              "ru": "Маринованное, с булгуром"
+              "tr": "",
+              "en": "",
+              "ru": ""
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🐟",
+            "name": {
+              "tr": "Fırında Soslu Patatesli Levrek",
+              "en": "Baked Sea Bass with Potatoes",
+              "ru": "Запечённый сибас с картофелем"
+            },
+            "desc": {
+              "tr": "Roka salatası (kırmızı soğanlı) & fırınlanmış sarımsaklı ekmek ile",
+              "en": "With rocket salad & garlic bread",
+              "ru": "С салатом из рукколы и чесночным хлебом"
             },
             "img": ""
           }
         ],
         "tatli": [
           {
-            "emoji": "🍮",
+            "emoji": "🥮",
             "name": {
-              "tr": "İrmik Tatlısı",
-              "en": "Semolina Dessert",
-              "ru": "Манный десерт"
+              "tr": "Fırında Sıcak Tahin Helvası",
+              "en": "Warm Baked Tahini Halva",
+              "ru": "Тёплая запечённая тахинная халва"
             },
             "desc": {
-              "tr": "Ev yapımı · 🎁 İkram",
-              "en": "Homemade · 🎁 Complimentary",
-              "ru": "Домашнее · 🎁 В подарок"
+              "tr": "Fırınlanmış · 🎁 İkram",
+              "en": "Baked · 🎁 Complimentary",
+              "ru": "Запечённая · 🎁 В подарок"
             },
             "img": ""
           }
@@ -445,50 +453,216 @@
       "4": {
         "ana": [
           {
-            "emoji": "🦐",
+            "emoji": "🍲",
             "name": {
-              "tr": "Karides Güveç",
-              "en": "Shrimp Casserole",
-              "ru": "Жаркое с креветками"
+              "tr": "Tavuklu Şehriye Çorbası",
+              "en": "Chicken Noodle Soup",
+              "ru": "Куриный суп с лапшой"
             },
             "desc": {
-              "tr": "Domates sosu ile fırında",
-              "en": "Baked in tomato sauce",
-              "ru": "В духовке с томатным соусом"
+              "tr": "",
+              "en": "",
+              "ru": ""
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🥘",
+            "name": {
+              "tr": "Fırında Kıymalı Patates Oturtma",
+              "en": "Baked Minced Meat with Potatoes",
+              "ru": "Запечённый картофель с фаршем"
+            },
+            "desc": {
+              "tr": "Şehriyeli bulgur pilavı & havuç tarator ile",
+              "en": "With bulgur pilaf & carrot tarator",
+              "ru": "С булгуром и морковным соусом"
             },
             "img": ""
           }
         ],
         "tatli": [
           {
-            "emoji": "🍮",
+            "emoji": "🥛",
             "name": {
-              "tr": "Kazandibi",
-              "en": "Caramel Pudding",
-              "ru": "Карамельный пудинг"
+              "tr": "Fırın Sütlaç",
+              "en": "Baked Rice Pudding",
+              "ru": "Запечённый рисовый пудинг"
             },
             "desc": {
               "tr": "Ev yapımı · 🎁 İkram",
               "en": "Homemade · 🎁 Complimentary",
-              "ru": "Домашнее · 🎁 В подарок"
+              "ru": "Домашний · 🎁 В подарок"
             },
             "img": ""
           }
         ]
       },
       "5": {
+        "konsept": {
+          "tr": "🌟 Meze & Keyif Gecesi — 11 Çeşit Açık Büfe Soğuk Meze + Seçmeli Ana Yemek",
+          "en": "🌟 Meze & Pleasure Night — 11 Cold Meze Buffet + Choice of Main",
+          "ru": "🌟 Вечер мезе — 11 холодных закусок + блюдо на выбор"
+        },
+        "ara": [
+          {
+            "emoji": "🍄",
+            "name": {
+              "tr": "Fırında Kaşarlı Mantar",
+              "en": "Baked Mushrooms with Cheese",
+              "ru": "Запечённые грибы с сыром"
+            },
+            "desc": {
+              "tr": "Ara sıcak",
+              "en": "Hot starter",
+              "ru": "Горячая закуска"
+            },
+            "img": ""
+          }
+        ],
         "ana": [
           {
             "emoji": "🐟",
             "name": {
-              "tr": "Balık Tava",
-              "en": "Fried Fish",
-              "ru": "Жареная рыба"
+              "tr": "Izgara Levrek",
+              "en": "Grilled Sea Bass",
+              "ru": "Жареный сибас"
             },
             "desc": {
-              "tr": "Mevsim balığı, çıtır kızartma",
-              "en": "Seasonal fish, crispy fried",
-              "ru": "Рыба сезона, хрустящая"
+              "tr": "Seçmeli ana yemek",
+              "en": "Choice of main",
+              "ru": "На выбор"
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🥩",
+            "name": {
+              "tr": "Izgara Kasap Köfte",
+              "en": "Grilled Butcher's Meatballs",
+              "ru": "Жареные фрикадельки"
+            },
+            "desc": {
+              "tr": "Seçmeli ana yemek",
+              "en": "Choice of main",
+              "ru": "На выбор"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍉",
+            "name": {
+              "tr": "Mevsim Meyveleri Tabağı",
+              "en": "Seasonal Fruit Platter",
+              "ru": "Тарелка сезонных фруктов"
+            },
+            "desc": {
+              "tr": "🎁 İkram",
+              "en": "🎁 Complimentary",
+              "ru": "🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "6": {
+        "konsept": {
+          "tr": "🌟 Barbekü & Bahçe Gecesi — 11 Çeşit Açık Büfe Soğuk Meze + Seçmeli Ana Yemek",
+          "en": "🌟 BBQ & Garden Night — 11 Cold Meze Buffet + Choice of Main",
+          "ru": "🌟 Вечер барбекю — 11 холодных закусок + блюдо на выбор"
+        },
+        "ara": [
+          {
+            "emoji": "🥟",
+            "name": {
+              "tr": "Çıtır Sigara Böreği",
+              "en": "Crispy Cigar Börek",
+              "ru": "Хрустящая сигарная выпечка"
+            },
+            "desc": {
+              "tr": "Ara sıcak",
+              "en": "Hot starter",
+              "ru": "Горячая закуска"
+            },
+            "img": ""
+          }
+        ],
+        "ana": [
+          {
+            "emoji": "🐟",
+            "name": {
+              "tr": "Izgara Levrek",
+              "en": "Grilled Sea Bass",
+              "ru": "Жареный сибас"
+            },
+            "desc": {
+              "tr": "Seçmeli ana yemek",
+              "en": "Choice of main",
+              "ru": "На выбор"
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🥩",
+            "name": {
+              "tr": "Izgara Kasap Köfte",
+              "en": "Grilled Butcher's Meatballs",
+              "ru": "Жареные фрикадельки"
+            },
+            "desc": {
+              "tr": "Seçmeli ana yemek",
+              "en": "Choice of main",
+              "ru": "На выбор"
+            },
+            "img": ""
+          }
+        ],
+        "tatli": [
+          {
+            "emoji": "🍉",
+            "name": {
+              "tr": "Mevsim Meyveleri Tabağı",
+              "en": "Seasonal Fruit Platter",
+              "ru": "Тарелка сезонных фруктов"
+            },
+            "desc": {
+              "tr": "🎁 İkram",
+              "en": "🎁 Complimentary",
+              "ru": "🎁 В подарок"
+            },
+            "img": ""
+          }
+        ]
+      },
+      "0": {
+        "ana": [
+          {
+            "emoji": "🍵",
+            "name": {
+              "tr": "Yayla Çorbası",
+              "en": "Yayla Soup (Yoghurt Soup)",
+              "ru": "Яйла чорбасы"
+            },
+            "desc": {
+              "tr": "",
+              "en": "",
+              "ru": ""
+            },
+            "img": ""
+          },
+          {
+            "emoji": "🍗",
+            "name": {
+              "tr": "Fırında Soslu Tavuk Baget",
+              "en": "Baked Chicken Drumsticks with Sauce",
+              "ru": "Запечённые куриные голени"
+            },
+            "desc": {
+              "tr": "Fırınlanmış sebzeler, sade pirinç pilavı & mevsim salatası ile",
+              "en": "With roasted veggies, plain rice & seasonal salad",
+              "ru": "С овощами, рисом и салатом"
             },
             "img": ""
           }
@@ -497,48 +671,14 @@
           {
             "emoji": "🍮",
             "name": {
-              "tr": "İrmik Tatlısı",
-              "en": "Semolina Dessert",
-              "ru": "Манный десерт"
+              "tr": "Ev Yapımı Puding",
+              "en": "Homemade Pudding",
+              "ru": "Домашний пудинг"
             },
             "desc": {
-              "tr": "Ev yapımı · 🎁 İkram",
-              "en": "Homemade · 🎁 Complimentary",
-              "ru": "Домашнее · 🎁 В подарок"
-            },
-            "img": ""
-          }
-        ]
-      },
-      "6": {
-        "ana": [
-          {
-            "emoji": "🥦",
-            "name": {
-              "tr": "Sebze Güveç",
-              "en": "Vegetable Stew",
-              "ru": "Овощное рагу"
-            },
-            "desc": {
-              "tr": "Zeytinyağlı mevsim sebzeleri",
-              "en": "Olive oil seasonal vegetables",
-              "ru": "Овощи на оливковом масле"
-            },
-            "img": ""
-          }
-        ],
-        "tatli": [
-          {
-            "emoji": "🍫",
-            "name": {
-              "tr": "Baklava",
-              "en": "Baklava",
-              "ru": "Пахлава"
-            },
-            "desc": {
-              "tr": "Fıstıklı · 🎁 İkram",
-              "en": "Pistachio · 🎁 Complimentary",
-              "ru": "Фисташковая · 🎁 В подарок"
+              "tr": "🎁 İkram",
+              "en": "🎁 Complimentary",
+              "ru": "🎁 В подарок"
             },
             "img": ""
           }
