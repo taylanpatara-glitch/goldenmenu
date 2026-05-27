@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Golden Pansiyon – Menü</title>
+<title>Golden Teras Restoran – Menü</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -1168,12 +1168,12 @@ let alakartData = {
     if(json.menu&&json.menu.week){
       Object.keys(json.menu.week).forEach(k=>{jsonWeek[parseInt(k)]=json.menu.week[k];});
     }
-    }
     if(json.menu&&json.menu.fixPrice&&!localStorage.getItem('gp_fiyat')){fiyat=json.menu.fixPrice;}
-    // Render yenile
+  }catch(e){console.warn('data.json yüklenemedi:',e);}
+  finally{
     renderAlaKart();
     renderIcMenu();
-  }catch(e){console.warn('data.json yüklenemedi:',e);}
+  }
 })();
 
 // ════════════════════════════════════════════════════════════
